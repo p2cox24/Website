@@ -1,0 +1,97 @@
+<html>
+<head>
+<script language="javaScript">
+
+function geussing()
+{
+	/*
+	block comment
+	1. Choose a number 1 through 10
+	2. Ask the user "What number do you want to geuss?"
+	3. Check if their number is correct
+	4. If correct tell them "your number is correct!" then go to step 1
+	5. If incorrect check to see if their number is more or less than the number you chose
+	6. Tell the user if your number is higher or lower than their geuss
+	7. Go to step 2
+
+	*/
+	var numOfGuess = 0; //camel case
+	var usersGuess = 0;
+	var rand = Math.random() * 10 + 1;
+	rand = parseInt(rand);
+	
+	usersGuess = prompt ("What is your geuss? 1-10")
+	
+	while(usersGuess != rand)
+	{								 
+		
+		if (usersGuess < rand)
+		{
+		alert ("Thats too low");
+		}
+		
+		if (usersGuess > rand)
+		{
+		alert ("Thats too high");
+		}
+		
+		
+	
+		usersGuess = prompt ("Choose a new number")
+		numOfGuess = numOfGuess + 1
+	}
+	
+	if (usersGuess == rand)
+	{
+	
+	alert("YOU GOT IT, it took "+numOfGuess+" tries")
+	}
+
+
+
+}
+
+function greeting()
+{
+	alert("Hello !")// "hello there" is a paramater.
+
+
+}//end of greeting() 
+
+function greeting1()
+{
+	var name = prompt("Whats your name?")// "whats ur name" is a paramater.
+	alert("Hello "+name);
+
+}//end of greeting1() 
+
+function greeting2()
+{
+	var answer = confirm("Do you want to play again?")
+	alert (answer);
+}//end of greeting2() 
+
+</script>
+</head>
+<body>
+
+
+<h1><b>Javascript</b></h1>
+
+<a href="Index.html">  Goto Index </a>
+
+<br/>
+<input type="button" value="Play My Guessing Game" onclick="geussing()" />
+
+<br/>
+<hr/>
+<input type="button" value="click me :)" onclick="greeting()" />
+
+<hr/>
+<input type="button" value="click me to enter a name" onclick="greeting1()"/>
+<hr/>
+<input type="button" value="click me one last time" onclick="greeting2()"/>
+
+</body>
+
+</html>
