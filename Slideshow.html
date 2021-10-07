@@ -1,0 +1,105 @@
+<html>
+<head>
+<script language="JavaScript">
+var counter = 0
+var picList = [	"images/slideshow/slide1cat.jpg",	
+				"images/slideshow/sldie2bird.jpg",
+				"images/slideshow/slide3dog.jpg",
+				"images/slideshow/slide4horse.jpg",
+				"images/slideshow/slide5lion.jpg",
+				"images/slideshow/sldie6goat.jpg"]
+var soundList = ["sounds/cat.mp3" ,
+				"sounds/hummingbird.mp3" ,
+				"sounds/dog.mp3" ,
+				"sounds/horse.mp3" ,
+				"sounds/lion.mp3" ,
+				"sounds/goat.mp3"]
+var startTimer = false;
+var autoStart = false;
+var timer;
+function next()
+{	var score = 1;  //local variable
+	score = score + 1;
+
+	//counter++
+	document.getElementById("display").src= picList[counter];
+	document.getElementById("player").src = soundList[counter];
+	document.getElementById("player").play()
+	increment();
+
+}
+
+
+
+function run()
+{		
+	if(autoStart == false)
+	{
+	
+		autoStart=true
+		document.getElementById("runButton").value="Stop"
+		
+	}
+	else
+	{
+		autoStart=false
+		document.getElementById("runButton").value="Start"
+	
+	}
+	autoRun()
+}
+
+function autoRun()
+{
+if(autoStart == true)
+{next();
+	var clipLength = soundList[counter].length;
+	//alert(clipLength)
+	
+	
+	timer= setTimeout("autoRun()", 5000);
+
+
+}
+}
+
+
+function increment()
+{
+	if( counter == picList.length-1)
+	{
+		counter = 0;
+	}
+	else
+	{
+		counter = counter + 1;
+	}
+
+
+}
+
+</script>
+</head>
+<body bgcolor="white "background="images/slideshow/slideshow.jpg">
+<center>
+<h1> <font color ="white">My Slideshow </font></h1>
+
+<a href = "Index.html">Click here to return to my homepage.</a>
+
+<br/>
+<br/>
+
+<input type= "button" value = "Next" onclick="next()" color="red"/>
+<input type= "button" value = "Start" onclick="run()"color="red" id="runButton"/>
+
+
+<br/>
+<br/>
+
+<img src="images/slideshow/slide1cat.jpg" id="display"/>
+<audio id="player"></audio>
+
+</center>
+
+</body>
+</html>
